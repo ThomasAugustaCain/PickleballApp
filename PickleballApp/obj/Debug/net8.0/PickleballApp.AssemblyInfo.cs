@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PickleballApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23ef9b7e3bd6df574c0023d9eb0e3113553efdc7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ef84fda6f8fbce74e7fccdc27873d21f3ec4735")]
 [assembly: System.Reflection.AssemblyProductAttribute("PickleballApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PickleballApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
