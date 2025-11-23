@@ -28,51 +28,48 @@ namespace PickleballApp.Controllers
             return View(players);
         }
 
-        // GET: PlayerController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
         // GET: PlayerController/Create
-        public ActionResult Create()
+        [HttpGet]
+        public IActionResult Add()
         {
-            return View();
+            ViewBag.Action = "Edit";
+
+            return View("Edit", new Player());
         }
 
-        // POST: PlayerController/Create
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Action = "Edit";
+            var player = Context.Players.Find(id);
+
+            return View(player);
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult Edit(Player player)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                if(player.PlayerId == 0)
+                {
+                    Context.Players.Add(player);
+                }
+                else
+                {
+                    Context.Players.Update(player);
+                }
 
-        // GET: PlayerController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+                Context.SaveChanges();
 
-        // POST: PlayerController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Player");
             }
-            catch
+            else
             {
-                return View();
+                ViewBag.Action = (player.PlayerId == 0) ? "Add" : "Edit";
+
+                return View(player);
             }
         }
 
