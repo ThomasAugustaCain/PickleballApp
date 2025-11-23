@@ -20,6 +20,8 @@
                 <td>@player.LastName</td>
                 <td>@player.Gender</td>
                 <td>
+                    <a asp-controller="Player" asp-action="Edit"
+                        asp-route-id="@player.PlayerId" class="btn btn-primary">Eidt</a>
                     <a asp-controller="Player" asp-action="Delete"
                         asp-route-id="@player.PlayerId" class="btn btn-close btn-danger" aria-label="Close"></a>
                 </td>
