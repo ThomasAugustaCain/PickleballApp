@@ -77,9 +77,13 @@ namespace PickleballApp.Controllers
         }
 
         // GET: PlayerController/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet]
+        public IActionResult Delete(int id)
         {
-            return View();
+            var player = Context.Players.Find(id);
+
+
+            return View(player);
         }
 
         // POST: PlayerController/Delete/5
