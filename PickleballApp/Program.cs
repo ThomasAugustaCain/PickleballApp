@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using PickleballApp.Models;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Add EF Core DI
+builder.Services.AddDbContext<PlayerContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("PlayerContext")));
+
 
 var app = builder.Build();
 
