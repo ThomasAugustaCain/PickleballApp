@@ -88,17 +88,12 @@ namespace PickleballApp.Controllers
 
         // POST: PlayerController/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public IActionResult Delete(Player player)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            Context.Players.Remove(player);
+            Context.SaveChanges();
+
+            return RedirectToAction("Index", "Player");
         }
     }
 }
