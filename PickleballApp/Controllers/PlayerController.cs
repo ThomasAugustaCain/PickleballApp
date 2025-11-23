@@ -7,10 +7,25 @@ namespace PickleballApp.Controllers
 {
     public class PlayerController : Controller
     {
-        // GET: PlayerController
-        public ActionResult Index()
+
+        private PlayerContext Context { get; set; }
+
+        // constructor method
+        public PlayerController(PlayerContext context)
         {
-            return View();
+            Context = context;
+        }
+        
+        // GET: PlayerController
+        public IActionResult Index()
+        {
+            //querying the database to return ALL players ordered by Last name
+            List<Player> players =
+                Context.Players
+                .OrderBy(m => m.LastName)
+                .ToList();
+
+            return View(players);
         }
 
         // GET: PlayerController/Details/5
