@@ -17,7 +17,7 @@ namespace PickleballApp.Models
         ////[Range(DateTime.Today.AddYears(-100), DateTime.Today.AddYears(-5), ErrorMessage = "A Player must be a least 5 years old.")]
         //// I need to create a custom validation type to perform the above code
         //public DateTime BirthDate { get; set; }
-
+        [Required(ErrorMessage = "Please select a gender")]
         public string? Gender { get; set; }
 
     }
