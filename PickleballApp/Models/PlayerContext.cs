@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PickleballApp.Models;
 namespace PickleballApp.Models
 {
     public class PlayerContext : DbContext
@@ -36,6 +37,7 @@ namespace PickleballApp.Models
                 }
                 );
         }
+        
 
     }
 }
